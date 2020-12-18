@@ -1,0 +1,25 @@
+apiVersion: getambassador.io/v2
+kind: Module
+metadata:
+  name: ambassador
+  namespace: ambassador
+spec:
+  config:
+    xff_num_trusted_hops: 1
+    use_remote_address: false
+---
+apiVersion: getambassador.io/v2
+kind: Host
+metadata:
+  name: k8s-v2.10pines.com
+  namespace: ambassador
+spec:
+  hostname: "k8s-v2.10pines.com"
+  acmeProvider:
+    authority: None
+  requestPolicy:
+    insecure:
+      action: Route
+  previewUrl:
+    enabled: true
+    type: Path

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+kubectl apply -f edge/pre.yaml
+
+helm install ambassador --namespace ambassador --values edge/helm-values.yaml datawire/ambassador
+
+kubectl apply -f edge/ambassador.yaml -f backend.yaml -f ingress.yaml

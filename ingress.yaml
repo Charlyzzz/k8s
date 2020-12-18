@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  namespace: ambassador
+  annotations:
+    networking.gke.io/managed-certificates: "k8s-v2.10pines.com"
+    kubernetes.io/ingress.global-static-ip-name: "k8s-v2-lb-ip"
+spec:
+  backend:
+    serviceName: ambassador
+    servicePort: 80
+---
+apiVersion: networking.gke.io/v1beta2
+kind: ManagedCertificate
+metadata:
+  name: k8s-v2.10pines.com
+  namespace: ambassador
+spec:
+  domains:
+    - k8s-v2.10pines.com
