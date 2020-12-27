@@ -9,19 +9,19 @@ authService:
   create: false
   optional_configurations: null
 autoscaling:
-  enabled: false
-  maxReplicas: 5
+  enabled: true
+  maxReplicas: 6
   metrics:
   - resource:
       name: cpu
       target:
-        averageUtilization: 60
+        averageUtilization: 70
         type: Utilization
     type: Resource
   - resource:
       name: memory
       target:
-        averageUtilization: 60
+        averageUtilization: 70
         type: Utilization
     type: Resource
   minReplicas: 2

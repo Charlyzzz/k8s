@@ -43,6 +43,6 @@ kind: Mapping
 metadata:
   name: backend
 spec:
-  prefix: /
+  prefix: /test
   rewrite: /
   service: backend:50000
